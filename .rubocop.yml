@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.6.1
+
+Documentation:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
