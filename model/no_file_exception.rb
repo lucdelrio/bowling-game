@@ -1,6 +1,7 @@
-class NoFileException < Exception
+# frozen_string_literal: true
 
-  def initialize(msg='Please specify a file')
+class NoFileException < RuntimeError
+  def initialize(msg = 'Please specify a file')
     super
   end
 end
