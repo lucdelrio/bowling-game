@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 class Player
   attr_reader :name, :frame, :score
 
-  def initialize(name)
+  def initialize(name, frame_count)
     @name = name
-    @frame = Array.new(10)
+    @frame = Array.new(frame_count)
     @score = []
   end
 end
