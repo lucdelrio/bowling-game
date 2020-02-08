@@ -15,5 +15,9 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
 
+Metrics/AbcSize:
+  Exclude:
+    - models/final_frame.rb
+
 Style/FrozenStringLiteralComment:
   Enabled: false

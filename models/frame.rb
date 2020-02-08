@@ -6,23 +6,37 @@ class Frame
     @rolls = []
   end
 
-  def add_pinfall(pins)
+  def add_roll(pins)
     raise InvalidScoreException if !pins.match?(/F/) && !(0..10).cover?(pins.to_i)
 
     @rolls << pins.to_i
     annotate(pins)
   end
 
-  def spare?
-    rolls.length == 2 && score == 10
+  def first_roll
+    rolls[0]
   end
 
-  def strike?
-    rolls.length == 1 && score == 10
+  def second_roll
+    rolls[1]
+  end
+
+  def rolls_count
+    rolls.length
+  end
+
+  def spare?
+    rolls_count == 2 && score == 10
+  end
+
+  def strike?(pins = nil)
+    return first_roll.to_i == 10 if pins.nil?
+
+    pins.to_i == 10
   end
 
   def complete?
-    rolls.length == 2 || strike?
+    rolls_count == 2 || strike?
   end
 
   def score
@@ -34,12 +48,12 @@ class Frame
   def annotate(pins)
     @pinfalls << if pins.match?(/F/)
                    pins
-                 elsif strike?
-                   'X'
                  elsif spare?
-                   '/'
+                   ' /'
+                 elsif strike?(pins)
+                   ' X'
                  else
-                   pins
+                   ' ' + pins
                  end
   end
 end
