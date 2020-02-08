@@ -1,15 +1,20 @@
 class Frame
-  attr_reader :rolls
+  attr_reader :rolls, :pinfalls
 
   def initialize
+    @pinfalls = []
     @rolls = []
   end
 
   def add_pinfall(pins)
-    # Throw exception if pins != F or if pins is not between 0 and 10
     raise InvalidScoreException if !pins.match?(/F/) && !(0..10).cover?(pins.to_i)
 
     @rolls << pins.to_i
+    annotate(pins)
+  end
+
+  def spare?
+    rolls.length == 2 && score == 10
   end
 
   def strike?
@@ -22,5 +27,19 @@ class Frame
 
   def score
     rolls.sum
+  end
+
+  private
+
+  def annotate(pins)
+    @pinfalls << if pins.match?(/F/)
+                   pins
+                 elsif strike?
+                   'X'
+                 elsif spare?
+                   '/'
+                 else
+                   pins
+                 end
   end
 end
