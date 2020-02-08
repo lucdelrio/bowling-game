@@ -2,7 +2,6 @@ require 'rspec'
 require 'spec_helper'
 require_relative '../../models/exceptions/no_file_exception'
 require_relative '../../models/program'
-# require_relative './../fixtures/rolls_test'
 
 describe 'Program' do
   context 'without arguments' do

@@ -1,23 +1,9 @@
 require 'rspec'
 require 'spec_helper'
-require_relative '../../models/exceptions/invalid_score_exception'
-require_relative '../../models/program'
+require_relative '../../models/game'
+require_relative '../../models/player'
 
 describe 'Game' do
-  context 'roll with negative number' do
-    it 'raise error' do
-      file_param = File.join(File.dirname(__FILE__), './../fixtures/negative_rolls.txt')
-      expect { Game.new(file_param) }.to raise_error(InvalidScoreException)
-    end
-  end
-
-  context 'roll with other letter' do
-    it 'raise error' do
-      file_param = File.join(File.dirname(__FILE__), './../fixtures/other_letter_rolls.txt')
-      expect { Game.new(file_param) }.to raise_error(InvalidScoreException)
-    end
-  end
-
   context 'roll is ok' do
     it 'counts two players' do
       file_param = File.join(File.dirname(__FILE__), './../fixtures/two_players_rolls.txt')

@@ -10,15 +10,11 @@ class Game
     file_data = File.read(file).split
 
     file_data.each_with_index do |data, index|
-      # par
       if index.even?
-        @players.push(Player.new(data, FRAME_COUNT)) if find_player(data).nil?
-      end
-      # impar
-      if index.odd?
-        # Throw exception if pins != F or if pins is not between 0 and 10
-        # Pasar a Frame
-        raise InvalidScoreException if !data.match?(/F/) && (!data.match?(/F/) && !(0..10).cover?(data.to_i))
+        players.push(Player.new(data, FRAME_COUNT)) if find_player(data).nil?
+      elsif index.odd?
+        player = find_player(file_data[index - 1])
+        player.roll(data)
       end
     end
   end
