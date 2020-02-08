@@ -1,6 +1,3 @@
-AllCops:
-  TargetRubyVersion: 2.6.1
-
 Documentation:
   Enabled: false
 

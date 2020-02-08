@@ -9,7 +9,18 @@ jobs:
       - image: circleci/ruby:2.6.1-stretch-node
     steps:
       - checkout
-      - run: gem install bundler:2.0.2
-      - run: bundle install
-      - run: bundle exec rubocop
-      - run: bundle exec rspec
+      - run: 
+          name: Install Bundler
+          command: gem install bundler:2.0.2
+      - run: 
+          name: Install dependencies
+          command: bundle install
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop
+      - run:
+          name: Run tests
+          command: bundle exec rspec
+      - store_artifacts:
+          path: coverage
+
