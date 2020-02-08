@@ -1,8 +1,8 @@
-version: 2
+version: 2.0
 jobs:
   build:
     docker:
-      - image: ruby:2.6.1
+      - image: circleci/ruby:2.6.3-stretch-node
 
     working_directory: /home/jobsity-game
     steps:
