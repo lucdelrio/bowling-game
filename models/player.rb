@@ -1,6 +1,7 @@
 require_relative 'player'
 require_relative 'frame'
 require_relative 'final_frame'
+require_relative 'score_calculator'
 
 class Player
   attr_reader :name, :frames, :frame_count
@@ -16,6 +17,11 @@ class Player
     setup_frame if frames[@current_frame].nil?
     frames[@current_frame].add_roll(pins)
     @current_frame += 1 if frames[@current_frame].complete?
+  end
+
+  def score
+    score_calculator = ScoreCalculator.new
+    score_calculator.calculate_score(frames)
   end
 
   private
