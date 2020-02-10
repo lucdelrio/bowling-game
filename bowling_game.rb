@@ -1,6 +1,6 @@
 require 'byebug'
 require_relative 'models/program'
 
-class TenPinBowling
+class BowlingGame
   Program.new(ARGV[0])
 end
