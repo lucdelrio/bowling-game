@@ -14,6 +14,8 @@ class Player
   end
 
   def roll(pins)
+    raise RollLimitException if @current_frame == frame_count
+
     setup_frame if frames[@current_frame].nil?
     frames[@current_frame].add_roll(pins)
     @current_frame += 1 if frames[@current_frame].complete?

@@ -1,4 +1,3 @@
-require 'rspec'
 require 'spec_helper'
 require_relative '../../models/exceptions/no_file_exception'
 require_relative '../../models/program'

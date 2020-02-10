@@ -1,4 +1,3 @@
-require 'rspec'
 require 'spec_helper'
 require_relative '../../models/frame'
 require_relative '../../models/final_frame'

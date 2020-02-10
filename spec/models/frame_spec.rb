@@ -1,4 +1,3 @@
-require 'rspec'
 require 'spec_helper'
 require_relative '../../models/frame'
 require_relative '../../models/exceptions/invalid_score_exception'
@@ -8,6 +7,13 @@ describe 'Frame' do
     it 'raise error' do
       frame = Frame.new
       expect { frame.add_roll('-3') }.to raise_error(InvalidScoreException)
+    end
+  end
+
+  context 'over ten pinfalls' do
+    it 'raise error' do
+      frame = Frame.new
+      expect { frame.add_roll('11') }.to raise_error(InvalidScoreException)
     end
   end
 
