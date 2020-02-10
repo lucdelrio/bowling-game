@@ -27,7 +27,7 @@ describe 'Player' do
     end
   end
 
-  context 'all strike' do
+  context 'perfect score' do
     it 'returns ok' do
       perfect_rolls = %w[10 10 10 10 10 10 10 10 10 10 10 10]
       player = Player.new('Carl', 10)
@@ -39,7 +39,7 @@ describe 'Player' do
     end
   end
 
-  context 'all zero' do
+  context 'all zero score' do
     it 'returns ok' do
       null_rolls = %w[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
       player = Player.new('Luke', 10)

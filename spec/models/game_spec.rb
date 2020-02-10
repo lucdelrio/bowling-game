@@ -17,4 +17,11 @@ describe 'Game' do
       expect(game.players.count).to eq 1
     end
   end
+
+  context 'file with negative roll' do
+    it 'raise error' do
+      file_param = File.join(File.dirname(__FILE__), './../fixtures/negative_rolls.txt')
+      expect { Game.new(file_param) }.to raise_error(InvalidScoreException)
+    end
+  end
 end
