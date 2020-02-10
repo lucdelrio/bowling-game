@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.1-stretch-node
+      - image: circleci/ruby:2.5.3-stretch-node
     steps:
       - checkout
       - run: 
