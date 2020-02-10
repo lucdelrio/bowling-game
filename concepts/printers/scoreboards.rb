@@ -18,12 +18,16 @@ module Printers
       print 'Pinfalls'
 
       player.frames.each do |frame|
-        frame.pinfalls.each do |pinfall|
-          if pinfall.match?(/X/) && frame.rolls_count == 3 || !pinfall.match?(/X/)
-            print pinfall.rjust(4)
-          else
-            print pinfall.rjust(8)
-          end
+        print_frame_pinfalls(frame)
+      end
+    end
+
+    def print_frame_pinfalls(frame)
+      frame.pinfalls.each do |pinfall|
+        if pinfall.match?(/X/) && frame.rolls_count == 3 || !pinfall.match?(/X/)
+          print pinfall.rjust(4)
+        else
+          print pinfall.rjust(8)
         end
       end
     end

@@ -19,13 +19,18 @@ class Game
 
   def save_players_and_rolls(file_data)
     file_data.each_with_index do |data, index|
-      if index.even?
-        players.push(Player.new(data, FRAME_COUNT)) if find_player(data).nil?
-      elsif index.odd?
-        player = find_player(file_data[index - 1])
-        player.roll(data)
-      end
+      save_player(data) if index.even?
+      save_roll(data, file_data[index - 1]) if index.odd?
     end
+  end
+
+  def save_player(data)
+    players.push(Player.new(data, FRAME_COUNT)) if find_player(data).nil?
+  end
+
+  def save_roll(data, current_player)
+    player = find_player(current_player)
+    player.roll(data)
   end
 
   def find_player(name)
