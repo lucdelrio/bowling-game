@@ -9,11 +9,4 @@ describe 'Program' do
       expect { Program.new(nil) }.to raise_error(NoFileException)
     end
   end
-
-  context 'with arguments' do
-    it 'is expected to not raise errors' do
-      file_param = File.join(File.dirname(__FILE__), './../fixtures/two_players_rolls.txt')
-      expect { Program.new(file_param) }.to_not raise_error
-    end
-  end
 end

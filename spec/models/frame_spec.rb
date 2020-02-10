@@ -24,27 +24,27 @@ describe 'Frame' do
       frame = Frame.new
       frame.add_roll('3')
       frame.add_roll('7')
-      expect(frame.pinfalls).to eq [' 3', ' /']
+      expect(frame.pinfalls).to eq ['3', '/']
     end
 
     it 'returns pinfalls ok with strike' do
       frame = Frame.new
       frame.add_roll('10')
-      expect(frame.pinfalls).to eq [' X']
+      expect(frame.pinfalls).to eq ['X']
     end
 
     it 'returns pinfalls ok with 2 and 5' do
       frame = Frame.new
       frame.add_roll('2')
       frame.add_roll('5')
-      expect(frame.pinfalls).to eq [' 2', ' 5']
+      expect(frame.pinfalls).to eq %w[2 5]
     end
 
     it 'returns pinfalls ok with 0 and spare' do
       frame = Frame.new
       frame.add_roll('0')
       frame.add_roll('10')
-      expect(frame.pinfalls).to eq [' 0', ' /']
+      expect(frame.pinfalls).to eq ['0', '/']
     end
   end
 end

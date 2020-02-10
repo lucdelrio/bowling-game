@@ -10,7 +10,7 @@ describe 'FinalFrame' do
       final_frame.add_roll('10')
       final_frame.add_roll('10')
       final_frame.add_roll('10')
-      expect(final_frame.pinfalls).to eq [' X', ' X', ' X']
+      expect(final_frame.pinfalls).to eq %w[X X X]
     end
 
     it 'returns pinfalls ok with strike and spare' do
@@ -18,7 +18,7 @@ describe 'FinalFrame' do
       final_frame.add_roll('10')
       final_frame.add_roll('5')
       final_frame.add_roll('5')
-      expect(final_frame.pinfalls).to eq [' X', ' 5', ' /']
+      expect(final_frame.pinfalls).to eq ['X', '5', '/']
     end
 
     it 'returns pinfalls ok with spare and strike' do
@@ -26,7 +26,7 @@ describe 'FinalFrame' do
       final_frame.add_roll('4')
       final_frame.add_roll('6')
       final_frame.add_roll('10')
-      expect(final_frame.pinfalls).to eq [' 4', ' /', ' X']
+      expect(final_frame.pinfalls).to eq ['4', '/', 'X']
     end
   end
 end

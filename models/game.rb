@@ -8,7 +8,16 @@ class Game
   def initialize(file)
     @players = []
     file_data = File.read(file).split
+    save_players_and_rolls(file_data)
+  end
 
+  def print_scoreboard
+    Printers::Scoreboards.run!(players: players)
+  end
+
+  private
+
+  def save_players_and_rolls(file_data)
     file_data.each_with_index do |data, index|
       if index.even?
         players.push(Player.new(data, FRAME_COUNT)) if find_player(data).nil?
@@ -18,10 +27,6 @@ class Game
       end
     end
   end
-
-  def print_scoreboard; end
-
-  private
 
   def find_player(name)
     players.select { |player| player.name == name }.first

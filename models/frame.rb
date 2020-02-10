@@ -49,11 +49,11 @@ class Frame
     @pinfalls << if pins.match?(/F/)
                    pins
                  elsif spare?
-                   ' /'
+                   '/'
                  elsif strike?(pins)
-                   ' X'
+                   'X'
                  else
-                   ' ' + pins
+                   pins
                  end
   end
 end

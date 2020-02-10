@@ -1,3 +1,5 @@
+require 'active_interaction'
+require_relative '../concepts/printers/scoreboards'
 require_relative 'exceptions/no_file_exception'
 require_relative 'game'
 require_relative 'player'
