@@ -1,6 +1,5 @@
 require_relative 'frame'
 require_relative 'final_frame'
-require 'byebug'
 
 class ScoreCalculator
   attr_reader :score, :current_roll
